@@ -1,108 +1,16 @@
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
-  <a class="navbar-brand fw-bold" href="#">Red Comunitaria</a>
+<div class="contenedor">
+    <header class="navbar-fixed">
+        <app-navbar>
+        </app-navbar>
+    </header>
 
-  <div class="ml-auto d-flex align-items-center">
+    <body class="body-scrollable">
+        <router-outlet>
+        </router-outlet>
+    </body>
 
-    <!-- BUSCADOR -->
-    <form class="form-inline mr-3">
-      <input
-        class="form-control"
-        type="search"
-        placeholder="Buscar"
-        aria-label="Buscar"
-      />
-    </form>
-
-    <!-- LOGIN -->
-    <a class="btn btn-primary" href="#">Ingresar</a>
-  </div>
-</nav>
-
-<!-- Título de la página -->
-<header class="bg-primary text-white py-5 mb-4">
-  <div class="container text-center">
-    <!-- <h1 class="display-4 font-weight-bold">Red Comunitaria</h1> -->
-    <p class="lead">Innovación y emprendimiento a nivel global y local</p>
-  </div>
-</header>
-
-<!-- Introducción -->
-<section class="container mb-5">
-  <div class="row align-items-center">
-    <div class="col-md-6">
-      <h2 class="font-weight-bold">¿Qué es Red Comunitaria?</h2>
-      <p class="text-muted">
-        Red Comunitaria es una plataforma que permite visualizar, gestionar y analizar datos 
-        relacionados con el ecosistema de innovación global y local. Conecta comunidades, 
-        impulsa proyectos y facilita la toma de decisiones informada.
-      </p>
-      <a class="btn btn-primary" href="#">Conocer más</a>
-    </div>
-
-    <div class="col-md-6 text-center">
-      <img src="https://cdn-icons-png.flaticon.com/512/833/833593.png" 
-           alt="community" 
-           width="250" class="img-fluid">
-    </div>
-  </div>
-</section>
-
-<!-- Sección de noticias -->
-<section class="bg-light py-5">
-  <div class="container">
-    <h3 class="font-weight-bold mb-4 text-center">Noticias recientes</h3>
-
-    <div class="row">
-
-      <!-- Noticia 1 -->
-      <div class="col-md-4 mb-4">
-        <div class="card shadow-sm h-100">
-          <img src="https://images.pexels.com/photos/3184432/pexels-photo-3184432.jpeg" class="card-img-top" alt="noticia">
-          <div class="card-body">
-            <h5 class="card-title">Innovación en América Latina</h5>
-            <p class="card-text text-muted">
-              Nuevos reportes muestran un crecimiento del ecosistema emprendedor en la región.
-            </p>
-            <a href="#" class="btn btn-outline-primary btn-sm">Leer más</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Noticia 2 -->
-      <div class="col-md-4 mb-4">
-        <div class="card shadow-sm h-100">
-          <img src="https://images.pexels.com/photos/3182763/pexels-photo-3182763.jpeg" class="card-img-top" alt="noticia">
-          <div class="card-body">
-            <h5 class="card-title">Tendencias globales 2024</h5>
-            <p class="card-text text-muted">
-              El Índice Global de Innovación destaca avances en sostenibilidad y tecnología.
-            </p>
-            <a href="#" class="btn btn-outline-primary btn-sm">Leer más</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Noticia 3 -->
-      <div class="col-md-4 mb-4">
-        <div class="card shadow-sm h-100">
-          <img src="https://images.pexels.com/photos/3182836/pexels-photo-3182836.jpeg" class="card-img-top" alt="noticia">
-          <div class="card-body">
-            <h5 class="card-title">Impulso a la innovación social</h5>
-            <p class="card-text text-muted">
-              Nuevos programas comunitarios están impulsando la participación ciudadana.
-            </p>
-            <a href="#" class="btn btn-outline-primary btn-sm">Leer más</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- Pie de página -->
-<footer class="bg-dark text-white text-center py-3 mt-4">
-  <p class="mb-0">© 2025 Red Comunitaria</p>
-  <small>Plataforma para la visualización de innovación y emprendimiento</small>
-</footer>
+    <footer class="footer-fixed">
+        <app-footer>
+        </app-footer>
+    </footer>
+</div>
