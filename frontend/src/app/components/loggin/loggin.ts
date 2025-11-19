@@ -1,11 +1,23 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ButtonComponent } from '../button/button';
+
 
 @Component({
   selector: 'app-loggin',
-  imports: [],
+  standalone: true,
   templateUrl: './loggin.html',
-  styleUrl: './loggin.css',
+  styleUrls: ['./loggin.css'],
+  imports: [CommonModule, ReactiveFormsModule, ButtonComponent]
 })
-export class Loggin {
+export class LogginComponent {
+  loginForm: FormGroup;
 
+  constructor(private fb: FormBuilder) {
+    this.loginForm = this.fb.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required]
+    });
+  }
 }
