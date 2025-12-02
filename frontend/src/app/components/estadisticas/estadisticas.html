@@ -1,0 +1,62 @@
+
+
+
+
+
+
+
+
+<div class="select-container">
+  <select [(ngModel)]="selectedLevel1" (change)="onLevel1Change()" class="select-level1">
+    <option *ngFor="let lvl1 of tree" [value]="lvl1.value" >{{lvl1.label}}</option>
+  </select>
+
+  <select [(ngModel)]="selectedLevel2" (change)="onLevel2Change()" class="select-level2">
+    <option *ngFor="let lvl2 of level2Options" [value]="lvl2.value">{{lvl2.label}}</option>
+  </select>
+
+  <select [(ngModel)]="selectedLevel3" (change)="onLevel3Change()" class="select-level3">
+    <option *ngFor="let lvl3 of level3Options" [value]="lvl3.value">{{lvl3.label}}</option>
+  </select>
+</div>
+
+<div class="chart-container2">
+  <h3>Gráfico 2</h3>
+  <div id="chart2"></div>
+</div>
+<div class="chart-container3">
+  <h3>Gráfico 3</h3>
+  <div id="chart3"></div>
+</div>
+<div class="chart-container3">
+  <h3>Gráfico 4</h3>
+  <div id="chart4"></div>
+</div>
+
+
+
+<div class='buttons'>
+  <button id='2004'>
+    2004
+  </button>
+  <button id='2008'>
+    2008
+  </button>
+  <button id='2012'>
+    2012
+  </button>
+  <button id='2016'>
+    2016
+  </button>
+  <button id='2020'>
+    2020
+  </button>
+  <button id='2024' class='active'>
+    2024
+  </button>
+</div>
+<div id="container"></div>
+<div>
+  <h3>Gráfico 1</h3>
+  <div id="chart1"></div>
+</div>

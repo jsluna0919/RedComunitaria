@@ -1,0 +1,34 @@
+/* Contenedor para centrar los selects y dar espacio */
+.select-container {
+  display: flex;
+  gap: 4rem; /* espacio entre selects */
+  margin: 1rem 0;
+  flex-wrap: wrap;
+    justify-content: center;
+    margin: 40px;
+}
+
+/* Estilo general para los selects */
+.select-container select {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #333;
+  transition: all 0.2s ease-in-out;
+  min-width: 200px; /* ancho mínimo */
+  cursor: pointer;
+}
+
+/* Efecto al pasar el mouse */
+.select-container select:hover {
+  border-color: #007BFF;
+}
+
+/* Efecto al enfocar */
+.select-container select:focus {
+  border-color: #007BFF;
+  box-shadow: 0 0 5px rgba(0,123,255,0.5);
+  outline: none;
+}

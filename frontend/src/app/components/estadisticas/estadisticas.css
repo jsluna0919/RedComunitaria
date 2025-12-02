@@ -1,0 +1,117 @@
+body {
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        "Apple Color Emoji",
+        "Segoe UI Emoji",
+        "Segoe UI Symbol",
+        sans-serif;
+    background: var(--highcharts-background-color);
+    color: var(--highcharts-neutral-color-100);
+}
+
+#container {
+    min-width: 310px;
+    max-width: 800px;
+    height: 400px;
+    margin: 0 auto;
+}
+
+.buttons {
+    min-width: 310px;
+    text-align: center;
+    margin: 1rem 0;
+    font-size: 0;
+}
+
+.buttons button {
+    cursor: pointer;
+    border: 1px solid silver;
+    border-right-width: 0;
+    background-color: #f8f8f8;
+    font-size: 1rem;
+    padding: 0.5rem;
+    transition-duration: 0.3s;
+    margin: 0;
+}
+
+.buttons button:first-child {
+    border-top-left-radius: 0.3em;
+    border-bottom-left-radius: 0.3em;
+}
+
+.buttons button:last-child {
+    border-top-right-radius: 0.3em;
+    border-bottom-right-radius: 0.3em;
+    border-right-width: 1px;
+}
+
+.buttons button:hover {
+    color: white;
+    background-color: rgb(158 159 163);
+    outline: none;
+}
+
+.buttons button.active {
+    background-color: #0051b4;
+    color: white;
+}
+
+
+/* Títulos de gráficos */
+.chart-container2 h3, div > h3 {
+  text-align: center;
+  margin-bottom: 10px;
+  font-family: Arial, sans-serif;
+}
+
+/* Contenedor para centrar los selects y dar espacio */
+.select-container {
+  display: flex;
+  gap: 4rem; /* espacio entre selects */
+  margin: 1rem 0;
+  flex-wrap: wrap;
+    justify-content: center;
+    margin: 40px;
+}
+
+/* Estilo general para los selects */
+.select-container select {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #333;
+  transition: all 0.2s ease-in-out;
+  min-width: 200px; /* ancho mínimo */
+  cursor: pointer;
+}
+
+/* Efecto al pasar el mouse */
+.select-container select:hover {
+  border-color: #007BFF;
+}
+
+/* Efecto al enfocar */
+.select-container select:focus {
+  border-color: #007BFF;
+  box-shadow: 0 0 5px rgba(0,123,255,0.5);
+  outline: none;
+}
+
+#chart2 {
+  width: 100%;
+  height: 400px; /* esto es obligatorio */
+  margin: 0 auto 30px auto;
+}
+
+.select-level1{
+    background-color: #007BFF;
+    color: violet;
+    font-size: 20px;
+}
