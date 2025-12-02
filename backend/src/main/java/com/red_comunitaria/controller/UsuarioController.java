@@ -1,0 +1,73 @@
+package com.red_comunitaria.controller;
+
+import com.red_comunitaria.model.UsuarioEntity;
+import com.red_comunitaria.service.UsuarioService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/usuarios")
+@RequiredArgsConstructor
+class UsuarioController {
+
+    private final UsuarioService service;
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?>  getUsuario(@PathVariable Integer id) {
+        try {
+            var usuario = service.findById(id);
+            return ResponseEntity
+                    .status(HttpStatus.OK)
+                    .body(new ApiResponse<>(true, "Usuario encontrado", usuario));
+        }catch (Exception e) {
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body(new ApiResponse<> (false, "Error al obtener el usuario con id: " + id, e.getMessage()));
+        }
+    }
+
+    @DeleteMapping("/eliminar/{id}")
+    public ResponseEntity<?> eliminarUsuario(@PathVariable Integer id) {
+        try {
+            service.delete(id);
+            return ResponseEntity
+                    .status(HttpStatus.OK)
+                    .body(new ApiResponse<>(true, "Usuario eliminado", true));
+        }catch (Exception e) {
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body(new ApiResponse<> (false, "Error al eliminar el usuario", e.getMessage()));
+        }
+    }
+
+    @PostMapping("/crear")
+    public ResponseEntity<?> crearUsuario(@RequestBody UsuarioEntity usuario) {
+        try {
+            var crearUsuario = service.save(usuario);
+            return ResponseEntity
+                    .status(HttpStatus.CREATED)
+                    .body(new ApiResponse<>(true, "Usuario creadado", crearUsuario));
+        }catch (Exception e) {
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body(new ApiResponse<> (false, "Error al crear el usuario ", e.getMessage()));
+        }
+    }
+
+    @PutMapping("/modificar/{id}")
+    public ResponseEntity<?> modificarUsuario(@PathVariable Integer id, @RequestBody UsuarioEntity usuario) {
+        try {
+            var modificarUsuario = service.modificar(id, usuario);
+            return ResponseEntity
+                    .status(HttpStatus.OK)
+                    .body(new ApiResponse<>(true, "Usuario modificado", modificarUsuario));
+
+        }catch (Exception e) {
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body(new ApiResponse<> (false, "Error al modificar el usuario", e.getMessage()));
+        }
+    }
+}
