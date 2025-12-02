@@ -1,0 +1,140 @@
+/* --- Variables y Tipografía Global --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
+
+:root {
+    --Primary: #00bcd4; /* Teal vibrante */
+    --Secondary: #1e90ff; /* Electric Blue */
+    --Text-Dark: #343a40; 
+    --Text-Muted: #6c757d; 
+    --Background-Section: #f0f2f5;
+}
+
+.dashboard-container {
+    font-family: 'Poppins', sans-serif;
+    padding: 30px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    background-color: var(--Background-Light, #ffffff);
+}
+
+/* --- Estilos del Encabezado --- */
+.dashboard-header {
+    text-align: center;
+    padding: 20px 0 30px 0;
+    border-bottom: 3px solid var(--Primary);
+    margin-bottom: 30px;
+}
+
+.dashboard-header h1 {
+    font-weight: 800; 
+    color: var(--Secondary);
+    font-size: 2.5rem;
+}
+
+.dashboard-header p {
+    color: var(--Text-Muted);
+}
+
+/* --- Panel de Controles (Selector) --- */
+.controls-panel {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: var(--Background-Section);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.controls-panel label {
+    font-weight: 600;
+    color: var(--Text-Dark);
+    display: block;
+    margin-bottom: 10px;
+}
+
+.custom-select {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px 15px;
+    border: 2px solid var(--Primary);
+    border-radius: 8px;
+    font-size: 1rem;
+    color: var(--Text-Dark);
+    background-color: white;
+    appearance: none; /* Quita el estilo nativo para mejor personalización */
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.custom-select:focus {
+    outline: none;
+    border-color: var(--Secondary);
+    box-shadow: 0 0 0 3px rgba(30, 144, 255, 0.2);
+}
+
+/* --- Panel de Gráficos --- */
+.chart-panel {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.chart-title {
+    color: var(--Text-Dark);
+    font-weight: 700;
+    margin-bottom: 25px;
+    border-left: 5px solid var(--Primary);
+    padding-left: 15px;
+}
+
+/* Envoltura para el tamaño del gráfico */
+.chart-wrapper {
+    height: 450px; /* Altura del gráfico */
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 40px;
+}
+
+/* --- Mensaje de Carga --- */
+.loading-message {
+    padding: 40px;
+    text-align: center;
+    color: var(--Text-Muted);
+    background-color: #f8f9fa;
+    border: 2px dashed #ced4da;
+    border-radius: 10px;
+}
+
+/* --- Tabla de Datos --- */
+.data-table-toggle {
+    margin-top: 30px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #fafafa;
+}
+
+.data-table-toggle summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--Secondary);
+    user-select: none;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 0.9em;
+}
+
+.data-table th, .data-table td {
+    border: 1px solid #e0e0e0;
+    padding: 10px 15px;
+    text-align: left;
+}
+
+.data-table th {
+    background-color: var(--Background-Section);
+    color: var(--Text-Dark);
+}
