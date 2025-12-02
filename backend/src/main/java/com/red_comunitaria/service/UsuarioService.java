@@ -19,6 +19,10 @@ public class UsuarioService {
         return this.repository.findById(id);
     }
 
+    public UsuarioEntity findByEmail(String email) {
+        return this.repository.findByEmail(email);
+    }
+
     public UsuarioEntity save(UsuarioEntity usuario) {
         return repository.save(usuario);
     }

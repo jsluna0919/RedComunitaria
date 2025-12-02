@@ -14,7 +14,7 @@ class UsuarioController {
 
     private final UsuarioService service;
 
-    @GetMapping("/{id}")
+    @GetMapping("/id/{id}")
     public ResponseEntity<?>  getUsuario(@PathVariable Integer id) {
         try {
             var usuario = service.findById(id);
@@ -25,6 +25,20 @@ class UsuarioController {
             return ResponseEntity
                     .status(HttpStatus.BAD_REQUEST)
                     .body(new ApiResponse<> (false, "Error al obtener el usuario con id: " + id, e.getMessage()));
+        }
+    }
+
+    @GetMapping("/email/{email}")
+    public ResponseEntity<?>  getUsuarioByEmail(@PathVariable String email) {
+        try {
+            var usuario = service.findByEmail(email);
+            return ResponseEntity
+                    .status(HttpStatus.OK)
+                    .body(new ApiResponse<>(true, "Usuario encontrado", usuario));
+        }catch (Exception e) {
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body(new ApiResponse<>(false, "Error al obtener el usuario con id: " + email, e.getMessage()));
         }
     }
 
