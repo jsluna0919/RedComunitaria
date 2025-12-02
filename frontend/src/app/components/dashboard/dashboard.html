@@ -1,0 +1,62 @@
+<div class="dashboard-container">
+  
+  <header class="dashboard-header">
+    <h1 class="display-6 font-weight-bold">Dashboard de Innovación Global</h1>
+    <p class="text-muted">Análisis del Score de Pilares de Innovación por País.</p>
+  </header>
+
+  <div class="controls-panel">
+    <label for="country-select">Seleccionar País:</label>
+    <select 
+        id="country-select" 
+        [ngModel]="selectedCountryISO3" 
+        (ngModelChange)="onCountryChange($event)"
+        class="form-select custom-select">
+        
+        <option *ngIf="availableCountries.length === 0" value="" disabled>Cargando Países...</option>
+        <option *ngFor="let country of availableCountries" [value]="country.iso3">
+            {{ country.name }} ({{ country.iso3 }})
+        </option>
+    </select>
+  </div>
+
+  <div class="chart-panel">
+    
+    <div *ngIf="availableCountries.length === 0" class="loading-message">
+        <div class="spinner"></div>
+        Cargando todos los archivos CSV...
+    </div>
+
+    <div *ngIf="availableCountries.length > 0">
+    <h3 class="chart-title">
+        Puntaje de los 7 Pilares de Innovación para {{ selectedCountryName }} 
+    </h3>
+    
+    <div class="chart-wrapper">
+      <canvas id="pillarChart"></canvas>
+    </div>
+    
+    <details class="data-table-toggle">
+        <summary>Ver Datos Crudos (Puntajes de Pilares)</summary>
+        <div class="table-wrapper">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Pilar de Innovación</th>
+                    <th>Puntaje (0-100)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pillar of rawPillarScores">
+                    <td>{{ pillar.num }}</td>
+                    <td>{{ pillar.name }}</td>
+                    <td class="score-value">{{ pillar.score | number:'1.2-2' }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </details>
+</div>
+  </div>
+</div>
