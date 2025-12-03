@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Inject, inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { environment } from '../envs/environment';
 import { Dato } from '../shared/models/data.model';
+import { ApiResponse } from '../shared/models/data.model';
 import { Indicator } from '../shared/models/indicadorNode.model';
 
 @Injectable({
@@ -15,7 +16,7 @@ export class Conexion {
 
   getData() {
     
-    return this.http.get<Dato[]>(`${this.apiUrl}/mediciones/detalle`);
+    return this.http.get<ApiResponse<Dato[]>>(`${this.apiUrl}/mediciones/detalle`);
   }
 
   getIndicators() {

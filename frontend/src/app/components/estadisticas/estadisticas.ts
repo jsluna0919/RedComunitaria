@@ -25,6 +25,7 @@ export class Estadisticas implements AfterViewInit {
     level3Options: Indicator[] = [];
   
     datos: Dato[] = [];
+    datosDelBackend: any[] = [];
     selectedLevel1 = '';
     selectedLevel2 = '';
     selectedLevel3 = '';
@@ -55,8 +56,9 @@ export class Estadisticas implements AfterViewInit {
     cargarDatos() {
       this.conexion.getData().subscribe((data) => {
         console.log('Datos recibidos:', data);
-        this.datos = data;
-
+        this.datosDelBackend = data.data;
+       
+        console.log(this.datosDelBackend.length);
       });
     }
 
@@ -81,6 +83,9 @@ export class Estadisticas implements AfterViewInit {
     onLevel1Change() {
       const lvl1 = this.tree.find(t => t.value === this.selectedLevel1);
       this.level2Options = lvl1?.children || [];
+
+      const nodo = this.findIndicatorByValue(this.selectedLevel1, this.tree);
+
       if (this.level2Options.length) {
         this.selectedLevel2 = this.level2Options[0].value;
         this.onLevel2Change();
@@ -92,11 +97,15 @@ export class Estadisticas implements AfterViewInit {
         title: { text: `Indicador: ${lvl1?.label}` },
         series: [{ name:  lvl1?.label, type: 'column', data: newData }]
       });
+
+      this.updateDescription("desc2", nodo?.description || "");
     }
   
     onLevel2Change() {
       const lvl2 = this.level2Options.find(l => l.value === this.selectedLevel2);
       this.level3Options = lvl2?.children || [];
+
+      const nodo = this.findIndicatorByValue(this.selectedLevel2, this.tree);
       if (this.level3Options.length) {
         this.selectedLevel3 = this.level3Options[0].value;
         this.onLevel3Change();
@@ -106,6 +115,9 @@ export class Estadisticas implements AfterViewInit {
         title: { text: `Indicador: ${lvl2?.label}` },
         series: [{ name: lvl2?.label, type: 'column', data: newData }]
       });
+
+      this.updateDescription("desc3", nodo?.description || "");
+
     }
   
     onLevel3Change() {
@@ -116,6 +128,9 @@ export class Estadisticas implements AfterViewInit {
       // }
       const newData = this.getChartData3(this.selectedLevel3);
       const lvl3 = this.level3Options.find(l => l.value === this.selectedLevel3);
+
+      const nodo = this.findIndicatorByValue(this.selectedLevel3, this.tree);
+      
       this.chart4.update({
         title: { text: `Indicador: ${lvl3?.label}` },
         series: [{ name: lvl3?.label, type: 'column', data: newData }]
@@ -124,7 +139,9 @@ export class Estadisticas implements AfterViewInit {
       this.generateChart(this.selectedLevel3);
       console.log(this.selectedLevel3);
       // console.log("Filtrado:", this.data.filter((d: any) => d.NUM === this.selectedLevel3));
-      console.log("Coincidencias dataset3:", dataset3.filter(d => d.indicadorCodigo === this.selectedLevel3));
+      console.log("Coincidencias dataset3:", this.datosDelBackend.filter(d => d.indicadorCodigo === this.selectedLevel3));
+
+      this.updateDescription("desc4", nodo?.description || "");
     }
   
     generateChart(num: string) {
@@ -208,34 +225,63 @@ export class Estadisticas implements AfterViewInit {
   }
   getChartData(num: any) {
     console.log(dataset[0].iso3);
-    const filtered = dataset.filter(d => d.indicadorCodigo === num);
+    const filtered = this.datosDelBackend.filter(d => d.indicadorCodigo === num);
     // const sorted = filtered.sort((a, b) => a.RANK - b.RANK);
-    const top10 = filtered.slice(0, 10);
+    const top10 = filtered
+      .filter(d => d.score != null)
+      .sort((a, b) => b.score - a.score) 
+      .slice(0, 10); 
     return top10.map(d => ({
       name: d.nombrePais,
-      y: d.score,
+      y: +d.score.toFixed(1),
       iso: d.iso3
-    })).sort((a, b) => a.y - b.y);
+    }));
   }
   getChartData2(num: any) {
     console.log(dataset2[0].iso3);
-    const filtered = dataset2.filter(d => d.indicadorCodigo === num);
-    const top10 = filtered.slice(0, 10);
+    const filtered = this.datosDelBackend.filter(d => d.indicadorCodigo === num);
+        const top10 = filtered
+      .filter(d => d.score != null)
+      .sort((a, b) => b.score - a.score) 
+      .slice(0, 10); 
     return top10.map(d => ({
       name: d.nombrePais,
-      y: d.score,
+      y: +d.score.toFixed(1),
       iso: d.iso3
-    })).sort((a, b) => a.y - b.y);
+    }));
   }
   getChartData3(num: any) {
     console.log(dataset3[0].iso3);
-    const filtered = dataset3.filter(d => d.indicadorCodigo === num);
-    const top10 = filtered.slice(0, 10);
+    const filtered = this.datosDelBackend.filter(d => d.indicadorCodigo === num);
+    const top10 = filtered
+      .filter(d => d.score != null)
+      .sort((a, b) => b.score - a.score) 
+      .slice(0, 10); 
     return top10.map(d => ({
       name: d.nombrePais,
-      y: d.score,
+      y: +d.score.toFixed(1),
       iso: d.iso3
-    })).sort((a, b) => a.y - b.y);
+    }));
+  }
+
+
+  updateDescription(elementId: string, descripcion: string) {
+    const el = document.getElementById(elementId);
+    if (el) el.innerText = descripcion || '';
+  }
+
+
+  findIndicatorByValue(value: string, nodes: any[]): any | null {
+    for (const node of nodes) {
+      if (node.value === value) {
+        return node;
+      }
+      if (node.children) {
+        const found = this.findIndicatorByValue(value, node.children);
+        if (found) return found;
+      }
+    }
+    return null;
   }
   // getOlympicsData(year: number) {
   //   const data:any = { 

@@ -1,3 +1,9 @@
+export interface ApiResponse<T> {
+  success: boolean;
+  message: string;
+  data: T;
+}
+
 export interface Dato {
   iso3: string;
   nombrePais: string;
