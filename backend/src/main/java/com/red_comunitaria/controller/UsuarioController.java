@@ -1,5 +1,6 @@
 package com.red_comunitaria.controller;
 
+import com.red_comunitaria.dto.CrearUsusarioDTO;
 import com.red_comunitaria.model.UsuarioEntity;
 import com.red_comunitaria.service.UsuarioService;
 import lombok.RequiredArgsConstructor;
@@ -72,7 +73,7 @@ class UsuarioController {
     }
 
     @PostMapping("/crear")
-    public ResponseEntity<?> crearUsuario(@RequestBody UsuarioEntity usuario) {
+    public ResponseEntity<?> crearUsuario(@RequestBody CrearUsusarioDTO usuario) {
         try {
             var crearUsuario = service.save(usuario);
             return ResponseEntity
@@ -86,7 +87,7 @@ class UsuarioController {
     }
 
     @PutMapping("/modificar/{id}")
-    public ResponseEntity<?> modificarUsuario(@PathVariable Integer id, @RequestBody UsuarioEntity usuario) {
+    public ResponseEntity<?> modificarUsuario(@PathVariable Integer id, @RequestBody CrearUsusarioDTO usuario) {
         try {
             var modificarUsuario = service.modificar(id, usuario);
             return ResponseEntity

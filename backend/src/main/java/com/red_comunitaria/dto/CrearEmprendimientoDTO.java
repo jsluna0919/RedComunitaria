@@ -11,7 +11,6 @@ public record CrearEmprendimientoDTO(
         String sitioWeb,
         String descripcion,
         String sector,
-        LocalDateTime creadoEn,
         Integer usuario
 ) {
 }

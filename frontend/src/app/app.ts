@@ -27,7 +27,8 @@ export class App implements OnInit { // Implementamos OnInit
   private excludedRoutes: string[] = [
     '/dashboard', 
     '/login',
-    '/register-form'
+    '/register-form',
+    '/register-user'
     // '/otra-ruta-sin-navbar'
   ];
 
