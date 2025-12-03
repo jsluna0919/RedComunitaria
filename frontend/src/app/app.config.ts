@@ -3,6 +3,7 @@ import { provideRouter } from '@angular/router';
 import { provideHighcharts } from 'highcharts-angular';
 import { routes } from './app.routes';
 import { Chart, BarController, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
+import { provideHttpClient } from '@angular/common/http';
 
 Chart.register(
   BarController, 
@@ -19,6 +20,7 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    provideHighcharts()
+    provideHighcharts(),
+    provideHttpClient()
   ]
 };

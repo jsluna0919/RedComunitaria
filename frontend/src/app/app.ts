@@ -20,13 +20,14 @@ import { Footer } from './components/footer/footer';
 export class App implements OnInit { // Implementamos OnInit
   title = signal('frontend');
   
-  // 🎯 Propiedad de control: Se muestra por defecto.
+  // Propiedad de control: Se muestra por defecto.
   showNavbar: boolean = true;
   
-  // 🎯 RUTAS A EXCLUIR: Añade aquí las rutas completas donde NO quieres que se muestre el navbar.
+  // RUTAS A EXCLUIR: Añade aquí las rutas completas donde NO quieres que se muestre el navbar.
   private excludedRoutes: string[] = [
     '/dashboard', 
     '/login',
+    '/register-form'
     // '/otra-ruta-sin-navbar'
   ];
 
