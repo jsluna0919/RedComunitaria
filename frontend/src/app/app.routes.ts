@@ -4,7 +4,8 @@ import { Home } from './components/home/home';
 import { LogginComponent } from './components/loggin/loggin';
 import { Filters } from './components/filters/filters';
 import { DashboardComponent } from './components/dashboard/dashboard';
-import { Form } from './form/form';
+import { Form } from './components/form/form';
+import { FormUser } from './components/form-user/form-user';
 
 
 export const routes: Routes = [
@@ -14,6 +15,7 @@ export const routes: Routes = [
     {path: 'statistics', component: Estadisticas },
     {path: 'filters', component: Filters },
     {path: 'dashboard', component:DashboardComponent},
-    {path: 'register-form', component: Form}
+    {path: 'register-form', component: Form},
+    {path: 'register-user', component: FormUser}
 
 ];

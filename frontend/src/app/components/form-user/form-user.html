@@ -1,0 +1,37 @@
+<div class="form-container">
+    <h2>Registro de Usuario</h2>
+    
+    <form (ngSubmit)="onSubmit()" #usuarioForm="ngForm">
+
+        <div class="form-group">
+            <label for="nombreUsuario">Nombre de Usuario:</label>
+            <input type="text" id="nombreUsuario" name="nombreUsuario" [(ngModel)]="usuario.nombreUsuario" required placeholder="Ej: Felipe">
+        </div>
+
+        <div class="form-group">
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" [(ngModel)]="usuario.telefono" required placeholder="Ej: 3001234567" pattern="[0-9]*">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" [(ngModel)]="usuario.email" required placeholder="Ej: Felipe@gmail.com">
+        </div>
+
+        <div class="form-group">
+            <label for="contrasenia">Contraseña:</label>
+            <input type="password" id="contrasenia" name="contrasenia" [(ngModel)]="usuario.contrasenia" required placeholder="Contraseña segura">
+        </div>
+        
+        <div class="form-group">
+            <label for="rol">Rol:</label>
+            <select id="rol" name="rol" [(ngModel)]="usuario.rol" required>
+                <option *ngFor="let r of rolesDisponibles" [value]="r">
+                    {{ r }}
+                </option>
+            </select>
+        </div>
+
+        <button type="submit" [disabled]="!usuarioForm.valid">Registrar Usuario</button>
+    </form>
+</div>
