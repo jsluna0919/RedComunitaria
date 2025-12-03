@@ -1,5 +1,6 @@
 package com.red_comunitaria.service;
 
+import com.red_comunitaria.dto.CrearUsusarioDTO;
 import com.red_comunitaria.dto.UsuarioDTO;
 import com.red_comunitaria.model.UsuarioEntity;
 import com.red_comunitaria.repository.UsuarioRepository;
@@ -37,28 +38,45 @@ public class UsuarioService {
                 )).toList();
     }
 
-    public UsuarioEntity save(UsuarioEntity usuario) {
-        return repository.save(usuario);
+    public UsuarioEntity save(CrearUsusarioDTO dto) {
+
+        var usuario = UsuarioEntity.builder()
+                .nombreUsuario(dto.nombreUsuario())
+                .telefono(dto.telefono())
+                .email(dto.email())
+                .contrasenia(dto.contrasenia())
+                .rol(dto.rol())
+                .build();
+
+        return  repository.save(usuario);
     }
 
     public void delete(Integer id) {
         this.repository.deleteById(id);
     }
 
-    public UsuarioEntity modificar(Integer id, UsuarioEntity usuario) {
+    public UsuarioEntity modificar(Integer id, CrearUsusarioDTO dto) {
 
-        UsuarioEntity entity = repository.findById(id)
+        var usuario = repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
 
-        entity.setNombreUsuario(usuario.getNombreUsuario());
-        entity.setTelefono(usuario.getTelefono());
-        entity.setEmail(usuario.getEmail());
-        entity.setContrasenia(usuario.getContrasenia());
-        entity.setRol(usuario.getRol());
+        if(dto.nombreUsuario() != null && !usuario.getNombreUsuario().isBlank()){
+            usuario.setNombreUsuario(dto.nombreUsuario());
+        }
+        if(dto.telefono() != null && !usuario.getTelefono().isBlank()){
+            usuario.setTelefono(dto.telefono());
+        }
+        if(dto.email() != null && !usuario.getEmail().isBlank()){
+            usuario.setEmail(dto.email());
+        }
+        if(dto.contrasenia() != null && !usuario.getContrasenia().isBlank()){
+            usuario.setContrasenia(dto.contrasenia());
+        }
+        if(dto.rol() != null && !usuario.getRol().isBlank()){
+            usuario.setRol(dto.rol());
+        }
 
-        UsuarioEntity guardado = repository.save(entity);
-
-        return guardado;
+        return repository.save(usuario);
     }
 
 }

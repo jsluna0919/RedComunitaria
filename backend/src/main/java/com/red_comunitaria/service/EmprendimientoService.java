@@ -92,6 +92,42 @@ public class EmprendimientoService {
         return repository.save(emprendimiento);
     }
 
+    @Transactional
+    public EmprendimientoEntity modificarEmprendimiento(Integer id, CrearEmprendimientoDTO dto) {
+        var emprendimiento =  repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Emprendimiento no encontrado com o id: " + id));
+
+        if(dto.iso3() != null && !dto.iso3().isBlank()){
+            var pais = paisRepository.findById(dto.iso3()).orElseThrow(() -> new RuntimeException("Pais no encontrado"));
+            emprendimiento.setPais(pais);
+        }
+        if(dto.nombre() != null && !dto.nombre().isBlank()){
+            emprendimiento.setNombre(dto.nombre());
+        }
+
+        if(dto.anioFundacion() != null){
+            emprendimiento.setAnioFundacion(dto.anioFundacion());
+        }
+
+        if(dto.sitioWeb() != null && !dto.sitioWeb().isBlank()){
+            emprendimiento.setSitioWeb(dto.sitioWeb());
+        }
+
+        if(dto.descripcion() != null && !dto.descripcion().isBlank()){
+            emprendimiento.setDescripcion(dto.descripcion());
+        }
+        if(dto.sector() != null && !dto.sector().isBlank()){
+            emprendimiento.setSector(dto.sector());
+        }
+
+        if(dto.usuario() != null){
+            var usuario = usuarioRepository.findById(dto.usuario()).orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+            emprendimiento.setUsuario(usuario);
+        }
+        return repository.save(emprendimiento);
+
+    }
+
     public void deleteEmprendimiento(Integer id) {
         repository.deleteById(id);
     }
