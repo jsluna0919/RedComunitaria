@@ -1,4 +1,71 @@
 export const dataset = [
+  { iso3: 'ALB', nombrePais: 'Albania', indicadorCodigo: 'IN.1', indicadorNombre: 'Innovation inputs', anio: 2023, valueScreen: 35.04, score: 66, rank: 45 },
+  { iso3: 'ARG', nombrePais: 'Argentina', indicadorCodigo: 'IN.1', indicadorNombre: 'Innovation inputs', anio: 2023, valueScreen: 40.12, score: 70, rank: 38 },
+  { iso3: 'AUS', nombrePais: 'Australia', indicadorCodigo: 'IN.1', indicadorNombre: 'Innovation inputs', anio: 2023, valueScreen: 45.23, score: 78, rank: 10 },
+  { iso3: 'BRA', nombrePais: 'Brazil', indicadorCodigo: 'IN.1', indicadorNombre: 'Innovation inputs', anio: 2023, valueScreen: 38.55, score: 65, rank: 50 },
+  { iso3: 'CAN', nombrePais: 'Canada', indicadorCodigo: 'IN.1', indicadorNombre: 'Innovation inputs', anio: 2023, valueScreen: 50.12, score: 80, rank: 5 },
+  { iso3: 'CHL', nombrePais: 'Chile', indicadorCodigo: 'IN.1', indicadorNombre: 'Innovation inputs', anio: 2023, valueScreen: 42.78, score: 72, rank: 30 },
+  { iso3: 'CHN', nombrePais: 'China', indicadorCodigo: 'IN.1', indicadorNombre: 'Innovation inputs', anio: 2023, valueScreen: 55.34, score: 88, rank: 2 },
+  { iso3: 'COL', nombrePais: 'Colombia', indicadorCodigo: 'IN.1', indicadorNombre: 'Innovation inputs', anio: 2023, valueScreen: 37.21, score: 64, rank: 52 },
+  { iso3: 'CRI', nombrePais: 'Costa Rica', indicadorCodigo: 'IN.1', indicadorNombre: 'Innovation inputs', anio: 2023, valueScreen: 41.45, score: 69, rank: 40 },
+  { iso3: 'CUB', nombrePais: 'Cuba', indicadorCodigo: 'IN.1', indicadorNombre: 'Innovation inputs', anio: 2023, valueScreen: 36.87, score: 62, rank: 55 },
+  { iso3: 'DOM', nombrePais: 'Dominican Republic', indicadorCodigo: 'IN.1', indicadorNombre: 'Innovation inputs', anio: 2023, valueScreen: 39.12, score: 66, rank: 48 },
+  { iso3: 'ECU', nombrePais: 'Ecuador', indicadorCodigo: 'IN.1', indicadorNombre: 'Innovation inputs', anio: 2023, valueScreen: 34.99, score: 60, rank: 60 },
+  { iso3: 'FRA', nombrePais: 'France', indicadorCodigo: 'IN.1', indicadorNombre: 'Innovation inputs', anio: 2023, valueScreen: 48.55, score: 75, rank: 20 },
+  { iso3: 'DEU', nombrePais: 'Germany', indicadorCodigo: 'IN.1', indicadorNombre: 'Innovation inputs', anio: 2023, valueScreen: 52.12, score: 82, rank: 7 },
+  { iso3: 'GTM', nombrePais: 'Guatemala', indicadorCodigo: 'IN.1', indicadorNombre: 'Innovation inputs', anio: 2023, valueScreen: 33.21, score: 58, rank: 65 },
+  { iso3: 'HND', nombrePais: 'Honduras', indicadorCodigo: 'IN.1', indicadorNombre: 'Innovation inputs', anio: 2023, valueScreen: 32.45, score: 55, rank: 70 },
+  { iso3: 'IND', nombrePais: 'India', indicadorCodigo: 'IN.1', indicadorNombre: 'Innovation inputs', anio: 2023, valueScreen: 49.78, score: 77, rank: 12 },
+  { iso3: 'ITA', nombrePais: 'Italy', indicadorCodigo: 'IN.1', indicadorNombre: 'Innovation inputs', anio: 2023, valueScreen: 46.33, score: 74, rank: 18 },
+  { iso3: 'JPN', nombrePais: 'Japan', indicadorCodigo: 'IN.1', indicadorNombre: 'Innovation inputs', anio: 2023, valueScreen: 53.21, score: 85, rank: 3 },
+  { iso3: 'MEX', nombrePais: 'Mexico', indicadorCodigo: 'IN.1', indicadorNombre: 'Innovation inputs', anio: 2023, valueScreen: 38.66, score: 63, rank: 53 }
+];
+export const dataset2 = [
+  { iso3: 'ALB', nombrePais: 'Albania', indicadorCodigo: 'IN.1.1', indicadorNombre: 'Institutional environment', anio: 2023, valueScreen: 55.17, score: 60, rank: 48 },
+  { iso3: 'ARG', nombrePais: 'Argentina', indicadorCodigo: 'IN.1.1', indicadorNombre: 'Institutional environment', anio: 2023, valueScreen: 52.44, score: 62, rank: 44 },
+  { iso3: 'AUS', nombrePais: 'Australia', indicadorCodigo: 'IN.1.1', indicadorNombre: 'Institutional environment', anio: 2023, valueScreen: 73.12, score: 82, rank: 6 },
+  { iso3: 'BRA', nombrePais: 'Brazil', indicadorCodigo: 'IN.1.1', indicadorNombre: 'Institutional environment', anio: 2023, valueScreen: 49.20, score: 58, rank: 55 },
+  { iso3: 'CAN', nombrePais: 'Canada', indicadorCodigo: 'IN.1.1', indicadorNombre: 'Institutional environment', anio: 2023, valueScreen: 75.33, score: 84, rank: 4 },
+  { iso3: 'CHL', nombrePais: 'Chile', indicadorCodigo: 'IN.1.1', indicadorNombre: 'Institutional environment', anio: 2023, valueScreen: 58.41, score: 68, rank: 35 },
+  { iso3: 'CHN', nombrePais: 'China', indicadorCodigo: 'IN.1.1', indicadorNombre: 'Institutional environment', anio: 2023, valueScreen: 65.22, score: 75, rank: 12 },
+  { iso3: 'COL', nombrePais: 'Colombia', indicadorCodigo: 'IN.1.1', indicadorNombre: 'Institutional environment', anio: 2023, valueScreen: 47.10, score: 57, rank: 57 },
+  { iso3: 'CRI', nombrePais: 'Costa Rica', indicadorCodigo: 'IN.1.1', indicadorNombre: 'Institutional environment', anio: 2023, valueScreen: 54.28, score: 63, rank: 41 },
+  { iso3: 'CUB', nombrePais: 'Cuba', indicadorCodigo: 'IN.1.1', indicadorNombre: 'Institutional environment', anio: 2023, valueScreen: 45.19, score: 55, rank: 60 },
+  { iso3: 'DOM', nombrePais: 'Dominican Republic', indicadorCodigo: 'IN.1.1', indicadorNombre: 'Institutional environment', anio: 2023, valueScreen: 51.37, score: 61, rank: 46 },
+  { iso3: 'ECU', nombrePais: 'Ecuador', indicadorCodigo: 'IN.1.1', indicadorNombre: 'Institutional environment', anio: 2023, valueScreen: 42.88, score: 52, rank: 70 },
+  { iso3: 'FRA', nombrePais: 'France', indicadorCodigo: 'IN.1.1', indicadorNombre: 'Institutional environment', anio: 2023, valueScreen: 70.10, score: 80, rank: 8 },
+  { iso3: 'DEU', nombrePais: 'Germany', indicadorCodigo: 'IN.1.1', indicadorNombre: 'Institutional environment', anio: 2023, valueScreen: 74.55, score: 83, rank: 5 },
+  { iso3: 'GTM', nombrePais: 'Guatemala', indicadorCodigo: 'IN.1.1', indicadorNombre: 'Institutional environment', anio: 2023, valueScreen: 40.33, score: 49, rank: 73 },
+  { iso3: 'HND', nombrePais: 'Honduras', indicadorCodigo: 'IN.1.1', indicadorNombre: 'Institutional environment', anio: 2023, valueScreen: 39.12, score: 47, rank: 76 },
+  { iso3: 'IND', nombrePais: 'India', indicadorCodigo: 'IN.1.1', indicadorNombre: 'Institutional environment', anio: 2023, valueScreen: 62.44, score: 72, rank: 18 },
+  { iso3: 'ITA', nombrePais: 'Italy', indicadorCodigo: 'IN.1.1', indicadorNombre: 'Institutional environment', anio: 2023, valueScreen: 68.11, score: 77, rank: 15 },
+  { iso3: 'JPN', nombrePais: 'Japan', indicadorCodigo: 'IN.1.1', indicadorNombre: 'Institutional environment', anio: 2023, valueScreen: 76.88, score: 85, rank: 3 },
+  { iso3: 'MEX', nombrePais: 'Mexico', indicadorCodigo: 'IN.1.1', indicadorNombre: 'Institutional environment', anio: 2023, valueScreen: 48.65, score: 56, rank: 58 }
+];
+
+export const dataset3 = [
+  { iso3: 'ARG', nombrePais: 'Argentina', indicadorCodigo: 'IN.1.1.1', indicadorNombre: 'Operational stability for businesses*', anio: 2023, valueScreen: 3.214, score: 58.12, rank: 72 },
+  { iso3: 'BRA', nombrePais: 'Brazil', indicadorCodigo: 'IN.1.1.1', indicadorNombre: 'Operational stability for businesses*', anio: 2023, valueScreen: 2.985, score: 61.45, rank: 68 },
+  { iso3: 'CHL', nombrePais: 'Chile', indicadorCodigo: 'IN.1.1.1', indicadorNombre: 'Operational stability for businesses*', anio: 2023, valueScreen: 4.112, score: 70.33, rank: 41 },
+  { iso3: 'COL', nombrePais: 'Colombia', indicadorCodigo: 'IN.1.1.1', indicadorNombre: 'Operational stability for businesses*', anio: 2023, valueScreen: 2.744, score: 55.92, rank: 83 },
+  { iso3: 'MEX', nombrePais: 'Mexico', indicadorCodigo: 'IN.1.1.1', indicadorNombre: 'Operational stability for businesses*', anio: 2023, valueScreen: 3.502, score: 63.71, rank: 63 },
+  { iso3: 'PER', nombrePais: 'Peru', indicadorCodigo: 'IN.1.1.1', indicadorNombre: 'Operational stability for businesses*', anio: 2023, valueScreen: 3.874, score: 65.90, rank: 58 },
+  { iso3: 'ECU', nombrePais: 'Ecuador', indicadorCodigo: 'IN.1.1.1', indicadorNombre: 'Operational stability for businesses*', anio: 2023, valueScreen: 2.612, score: 54.12, rank: 88 },
+  { iso3: 'URY', nombrePais: 'Uruguay', indicadorCodigo: 'IN.1.1.1', indicadorNombre: 'Operational stability for businesses*', anio: 2023, valueScreen: 4.554, score: 72.88, rank: 35 },
+  { iso3: 'PRY', nombrePais: 'Paraguay', indicadorCodigo: 'IN.1.1.1', indicadorNombre: 'Operational stability for businesses*', anio: 2023, valueScreen: 3.012, score: 59.44, rank: 75 },
+  { iso3: 'BOL', nombrePais: 'Bolivia', indicadorCodigo: 'IN.1.1.1', indicadorNombre: 'Operational stability for businesses*', anio: 2023, valueScreen: 2.401, score: 52.90, rank: 92 },
+  { iso3: 'VEN', nombrePais: 'Venezuela', indicadorCodigo: 'IN.1.1.1', indicadorNombre: 'Operational stability for businesses*', anio: 2023, valueScreen: 1.222, score: 29.13, rank: 128 },
+  { iso3: 'CRI', nombrePais: 'Costa Rica', indicadorCodigo: 'IN.1.1.1', indicadorNombre: 'Operational stability for businesses*', anio: 2023, valueScreen: 3.955, score: 67.40, rank: 53 },
+  { iso3: 'PAN', nombrePais: 'Panama', indicadorCodigo: 'IN.1.1.1', indicadorNombre: 'Operational stability for businesses*', anio: 2023, valueScreen: 4.012, score: 69.88, rank: 46 },
+  { iso3: 'DOM', nombrePais: 'Dominican Republic', indicadorCodigo: 'IN.1.1.1', indicadorNombre: 'Operational stability for businesses*', anio: 2023, valueScreen: 3.145, score: 60.55, rank: 71 },
+  { iso3: 'SLV', nombrePais: 'El Salvador', indicadorCodigo: 'IN.1.1.1', indicadorNombre: 'Operational stability for businesses*', anio: 2023, valueScreen: 3.220, score: 60.90, rank: 70 },
+  { iso3: 'HND', nombrePais: 'Honduras', indicadorCodigo: 'IN.1.1.1', indicadorNombre: 'Operational stability for businesses*', anio: 2023, valueScreen: 2.301, score: 50.88, rank: 97 },
+  { iso3: 'NIC', nombrePais: 'Nicaragua', indicadorCodigo: 'IN.1.1.1', indicadorNombre: 'Operational stability for businesses*', anio: 2023, valueScreen: 2.110, score: 48.00, rank: 103 },
+  { iso3: 'GTM', nombrePais: 'Guatemala', indicadorCodigo: 'IN.1.1.1', indicadorNombre: 'Operational stability for businesses*', anio: 2023, valueScreen: 2.954, score: 58.80, rank: 73 },
+  { iso3: 'CUB', nombrePais: 'Cuba', indicadorCodigo: 'IN.1.1.1', indicadorNombre: 'Operational stability for businesses*', anio: 2023, valueScreen: 1.955, score: 45.22, rank: 110 },
+  { iso3: 'HTI', nombrePais: 'Haiti', indicadorCodigo: 'IN.1.1.1', indicadorNombre: 'Operational stability for businesses*', anio: 2023, valueScreen: 1.102, score: 28.88, rank: 129 }
+];
+export const dataset4 = [
   { ISO3: 'ALB', ECONOMY_NAME: 'Albania', NUM: 'IN.1', NAME: 'Innovation inputs', DATAYR: 2023, VALUE_SCREEN: 35.04, SCORE: 66, RANK: 45, SW_OVERALL: 55, SW_INCGRP: 47 },
   { ISO3: 'ARG', ECONOMY_NAME: 'Argentina', NUM: 'IN.1', NAME: 'Innovation inputs', DATAYR: 2023, VALUE_SCREEN: 40.12, SCORE: 70, RANK: 38, SW_OVERALL: 60, SW_INCGRP: 50 },
   { ISO3: 'AUS', ECONOMY_NAME: 'Australia', NUM: 'IN.1', NAME: 'Innovation inputs', DATAYR: 2023, VALUE_SCREEN: 45.23, SCORE: 78, RANK: 10, SW_OVERALL: 70, SW_INCGRP: 60 },
@@ -20,7 +87,7 @@ export const dataset = [
   { ISO3: 'JPN', ECONOMY_NAME: 'Japan', NUM: 'IN.1', NAME: 'Innovation inputs', DATAYR: 2023, VALUE_SCREEN: 53.21, SCORE: 85, RANK: 3, SW_OVERALL: 78, SW_INCGRP: 70 },
   { ISO3: 'MEX', ECONOMY_NAME: 'Mexico', NUM: 'IN.1', NAME: 'Innovation inputs', DATAYR: 2023, VALUE_SCREEN: 38.66, SCORE: 63, RANK: 53, SW_OVERALL: 57, SW_INCGRP: 46 }
 ];
-export const dataset2 = [
+export const dataset5 = [
   { ISO3: 'ALB', ECONOMY_NAME: 'Albania', NUM: 'IN.1.1', NAME: 'Institutional environment', DATAYR: 2023, VALUE_SCREEN: 55.17, SCORE: 60, RANK: 48, SW_OVERALL: 58, SW_INCGRP: 50 },
   { ISO3: 'ARG', ECONOMY_NAME: 'Argentina', NUM: 'IN.1.1', NAME: 'Institutional environment', DATAYR: 2023, VALUE_SCREEN: 52.44, SCORE: 62, RANK: 44, SW_OVERALL: 59, SW_INCGRP: 51 },
   { ISO3: 'AUS', ECONOMY_NAME: 'Australia', NUM: 'IN.1.1', NAME: 'Institutional environment', DATAYR: 2023, VALUE_SCREEN: 73.12, SCORE: 82, RANK: 6, SW_OVERALL: 75, SW_INCGRP: 70 },
@@ -43,7 +110,7 @@ export const dataset2 = [
   { ISO3: 'MEX', ECONOMY_NAME: 'Mexico', NUM: 'IN.1.1', NAME: 'Institutional environment', DATAYR: 2023, VALUE_SCREEN: 48.65, SCORE: 56, RANK: 58, SW_OVERALL: 52, SW_INCGRP: 44 }
 ];
 
-export const dataset3 = [ 
+export const dataset6 = [ 
   {
     "ISO3": "ARG",
     "ECONOMY_NAME": "Argentina",

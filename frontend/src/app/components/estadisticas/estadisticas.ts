@@ -34,7 +34,7 @@ export class Estadisticas implements AfterViewInit {
     ngOnInit() {
       // Inicializamos el árbol
       this.cargarDatos();
-      this.cargarIndicadores();
+      // this.cargarIndicadores();
       this.tree = indicatorTree;
 
       if (this.tree.length) {
@@ -56,6 +56,7 @@ export class Estadisticas implements AfterViewInit {
       this.conexion.getData().subscribe((data) => {
         console.log('Datos recibidos:', data);
         this.datos = data;
+
       });
     }
 
@@ -123,7 +124,7 @@ export class Estadisticas implements AfterViewInit {
       this.generateChart(this.selectedLevel3);
       console.log(this.selectedLevel3);
       // console.log("Filtrado:", this.data.filter((d: any) => d.NUM === this.selectedLevel3));
-      console.log("Coincidencias dataset3:", dataset3.filter(d => d.NUM === this.selectedLevel3));
+      console.log("Coincidencias dataset3:", dataset3.filter(d => d.indicadorCodigo === this.selectedLevel3));
     }
   
     generateChart(num: string) {
@@ -206,34 +207,34 @@ export class Estadisticas implements AfterViewInit {
     });
   }
   getChartData(num: any) {
-    console.log(dataset[0].ISO3);
-    const filtered = dataset.filter(d => d.NUM === num);
+    console.log(dataset[0].iso3);
+    const filtered = dataset.filter(d => d.indicadorCodigo === num);
     // const sorted = filtered.sort((a, b) => a.RANK - b.RANK);
     const top10 = filtered.slice(0, 10);
     return top10.map(d => ({
-      name: d.ECONOMY_NAME,
-      y: d.SCORE,
-      iso: d.ISO3
+      name: d.nombrePais,
+      y: d.score,
+      iso: d.iso3
     })).sort((a, b) => a.y - b.y);
   }
   getChartData2(num: any) {
-    console.log(dataset2[0].ISO3);
-    const filtered = dataset2.filter(d => d.NUM === num);
+    console.log(dataset2[0].iso3);
+    const filtered = dataset2.filter(d => d.indicadorCodigo === num);
     const top10 = filtered.slice(0, 10);
     return top10.map(d => ({
-      name: d.ECONOMY_NAME,
-      y: d.SCORE,
-      iso: d.ISO3
+      name: d.nombrePais,
+      y: d.score,
+      iso: d.iso3
     })).sort((a, b) => a.y - b.y);
   }
   getChartData3(num: any) {
-    console.log(dataset3[0].ISO3);
-    const filtered = dataset3.filter(d => d.NUM === num);
+    console.log(dataset3[0].iso3);
+    const filtered = dataset3.filter(d => d.indicadorCodigo === num);
     const top10 = filtered.slice(0, 10);
     return top10.map(d => ({
-      name: d.ECONOMY_NAME,
-      y: d.SCORE,
-      iso: d.ISO3
+      name: d.nombrePais,
+      y: d.score,
+      iso: d.iso3
     })).sort((a, b) => a.y - b.y);
   }
   // getOlympicsData(year: number) {

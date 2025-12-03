@@ -15,7 +15,7 @@ export class Conexion {
 
   getData() {
     
-    return this.http.get<Dato[]>(`${this.apiUrl}/datos`);
+    return this.http.get<Dato[]>(`${this.apiUrl}/mediciones/detalle`);
   }
 
   getIndicators() {
