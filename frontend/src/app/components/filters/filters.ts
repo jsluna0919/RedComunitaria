@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { IndicatorNode } from '../../shared/models/indicadorNode.model';
+import { Indicator } from '../../shared/models/indicadorNode.model';
 import { dataset } from '../../shared/data/dataset.data';
 import { indicatorTree } from '../../shared/data/indicatorTree.data';
 @Component({
@@ -15,9 +15,9 @@ import { indicatorTree } from '../../shared/data/indicatorTree.data';
 export class Filters {
 
 
-  tree: IndicatorNode[] = [];
-  level2Options: IndicatorNode[] = [];
-  level3Options: IndicatorNode[] = [];
+  tree: Indicator[] = [];
+  level2Options: Indicator[] = [];
+  level3Options: Indicator[] = [];
 
   selectedLevel1 = '';
   selectedLevel2 = '';

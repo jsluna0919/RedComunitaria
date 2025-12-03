@@ -1,3 +1,4 @@
+import { Conexion } from './../../services/conexion';
 import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -5,10 +6,11 @@ import * as Highcharts from 'highcharts';
 import { SeriesColumnOptions } from 'highcharts';
 import { HighchartsChartComponent, ChartConstructorType } from 'highcharts-angular';
 import { indicatorTree } from '../../shared/data/indicatorTree.data';
-import { IndicatorNode } from '../../shared/models/indicadorNode.model';
+import { Indicator } from '../../shared/models/indicadorNode.model';
 import { dataset } from '../../shared/data/dataset.data';
 import { dataset2 } from '../../shared/data/dataset.data';
 import { dataset3 } from '../../shared/data/dataset.data';
+import { Dato } from '../../shared/models/data.model';
 @Component({
   selector: 'app-estadisticas',
   standalone: true,
@@ -18,17 +20,21 @@ import { dataset3 } from '../../shared/data/dataset.data';
 })
 export class Estadisticas implements AfterViewInit {
 
-    tree: IndicatorNode[] = [];
-    level2Options: IndicatorNode[] = [];
-    level3Options: IndicatorNode[] = [];
+    tree: Indicator[] = [];
+    level2Options: Indicator[] = [];
+    level3Options: Indicator[] = [];
   
-
+    datos: Dato[] = [];
     selectedLevel1 = '';
     selectedLevel2 = '';
     selectedLevel3 = '';
+
+    constructor(private conexion: Conexion) {}
  
     ngOnInit() {
       // Inicializamos el árbol
+      this.cargarDatos();
+      this.cargarIndicadores();
       this.tree = indicatorTree;
 
       if (this.tree.length) {
@@ -44,6 +50,20 @@ export class Estadisticas implements AfterViewInit {
           }
         }
       }
+    }
+
+    cargarDatos() {
+      this.conexion.getData().subscribe((data) => {
+        console.log('Datos recibidos:', data);
+        this.datos = data;
+      });
+    }
+
+    cargarIndicadores() {
+      this.conexion.getIndicators().subscribe((indicators) => {
+        console.log('Indicadores recibidos:', indicators);
+        this.tree = indicators;
+      });
     }
     
     ngAfterViewInit() {
@@ -68,8 +88,8 @@ export class Estadisticas implements AfterViewInit {
       if (!this.chart2) return;
       const newData = this.getChartData(this.selectedLevel1);
       this.chart2.update({
-        title: { text: `Indicador: ${this.selectedLevel1}` },
-        series: [{ name: this.selectedLevel1, type: 'column', data: newData }]
+        title: { text: `Indicador: ${lvl1?.label}` },
+        series: [{ name:  lvl1?.label, type: 'column', data: newData }]
       });
     }
   
@@ -82,8 +102,8 @@ export class Estadisticas implements AfterViewInit {
       }
       const newData = this.getChartData2(this.selectedLevel2);
       this.chart3.update({
-        title: { text: `Indicador: ${this.selectedLevel2}` },
-        series: [{ name: this.selectedLevel2, type: 'column', data: newData }]
+        title: { text: `Indicador: ${lvl2?.label}` },
+        series: [{ name: lvl2?.label, type: 'column', data: newData }]
       });
     }
   
@@ -94,9 +114,10 @@ export class Estadisticas implements AfterViewInit {
       //   this.selectedLevel3 = this.level3Options[0].value;
       // }
       const newData = this.getChartData3(this.selectedLevel3);
+      const lvl3 = this.level3Options.find(l => l.value === this.selectedLevel3);
       this.chart4.update({
-        title: { text: `Indicador: ${this.selectedLevel3}` },
-        series: [{ name: this.selectedLevel3, type: 'column', data: newData }]
+        title: { text: `Indicador: ${lvl3?.label}` },
+        series: [{ name: lvl3?.label, type: 'column', data: newData }]
       });
       // aquí generas el gráfico según this.selectedLevel3
       this.generateChart(this.selectedLevel3);
@@ -131,11 +152,13 @@ export class Estadisticas implements AfterViewInit {
     //     dataLabels: { enabled: true }
     //   }]
     // });
-
+    const lvl1 = this.tree.find(t => t.value === this.selectedLevel1);
+    const lvl2 = this.level2Options.find(t => t.value === this.selectedLevel2);
+    const lvl3 = this.level3Options.find(t => t.value === this.selectedLevel3);
     // Segundo gráfico: datos dinámicos de dataset según select
     this.chart2 = Highcharts.chart('chart2', {
       chart: { type: 'column' },
-      title: { text: `Indicador: ${this.selectedLevel1}` },
+      title: { text: `Indicador: ${lvl1?.label}` },
       xAxis: { type: 'category' },
       yAxis: { title: { text: 'Rank' } },
       series: [{
@@ -151,7 +174,7 @@ export class Estadisticas implements AfterViewInit {
     });
     this.chart3 = Highcharts.chart('chart3', {
       chart: { type: 'column' },
-      title: { text: `Indicador: ${this.selectedLevel2}` },
+      title: { text: `Indicador: ${lvl2?.label}` },
       xAxis: { type: 'category' },
       yAxis: { title: { text: 'Rank' } },
       series: [{
@@ -167,7 +190,7 @@ export class Estadisticas implements AfterViewInit {
     });
     this.chart4 = Highcharts.chart('chart4', {
       chart: { type: 'column' },
-      title: { text: `Indicador: ${this.selectedLevel3}` },
+      title: { text: `Indicador: ${lvl3?.label}` },
       xAxis: { type: 'category' },
       yAxis: { title: { text: 'Rank' } },
       series: [{
@@ -185,29 +208,33 @@ export class Estadisticas implements AfterViewInit {
   getChartData(num: any) {
     console.log(dataset[0].ISO3);
     const filtered = dataset.filter(d => d.NUM === num);
-    return filtered.map(d => ({
+    // const sorted = filtered.sort((a, b) => a.RANK - b.RANK);
+    const top10 = filtered.slice(0, 10);
+    return top10.map(d => ({
       name: d.ECONOMY_NAME,
-      y: d.RANK,
+      y: d.SCORE,
       iso: d.ISO3
-    })).sort((a, b) => b.y - a.y);
+    })).sort((a, b) => a.y - b.y);
   }
   getChartData2(num: any) {
     console.log(dataset2[0].ISO3);
     const filtered = dataset2.filter(d => d.NUM === num);
-    return filtered.map(d => ({
+    const top10 = filtered.slice(0, 10);
+    return top10.map(d => ({
       name: d.ECONOMY_NAME,
-      y: d.RANK,
+      y: d.SCORE,
       iso: d.ISO3
-    })).sort((a, b) => b.y - a.y);
+    })).sort((a, b) => a.y - b.y);
   }
   getChartData3(num: any) {
     console.log(dataset3[0].ISO3);
     const filtered = dataset3.filter(d => d.NUM === num);
-    return filtered.map(d => ({
+    const top10 = filtered.slice(0, 10);
+    return top10.map(d => ({
       name: d.ECONOMY_NAME,
-      y: d.RANK,
+      y: d.SCORE,
       iso: d.ISO3
-    })).sort((a, b) => b.y - a.y);
+    })).sort((a, b) => a.y - b.y);
   }
   // getOlympicsData(year: number) {
   //   const data:any = { 

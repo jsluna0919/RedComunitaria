@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { forkJoin, Observable } from 'rxjs'; 
 import { Chart, ChartData, ChartOptions } from 'chart.js';
+import { Estadisticas } from "../estadisticas/estadisticas";
+// import { HttpClientModule } from '@angular/common/http';
 
 // --- INTERFACES ---
 interface CsvFile {
@@ -21,9 +23,10 @@ interface PillarScore {
 @Component({
     selector: 'app-dashboard',
     imports: [
-        CommonModule,
-        FormsModule 
-    ],
+    CommonModule,
+    FormsModule,
+    Estadisticas
+],
     standalone: true,
     templateUrl: './dashboard.html', 
     styleUrl: './dashboard.css', 

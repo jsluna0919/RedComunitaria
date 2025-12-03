@@ -1,5 +1,5 @@
-export  interface IndicatorNode {
+export  interface Indicator {
     value: string; // el NUM
     label: string; // el NAME
-    children?: IndicatorNode[];
+    children?: Indicator[];
 }

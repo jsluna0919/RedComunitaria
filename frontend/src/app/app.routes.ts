@@ -6,11 +6,12 @@ import { Filters } from './components/filters/filters';
 import { DashboardComponent } from './components/dashboard/dashboard';
 import { Form } from './form/form';
 
+
 export const routes: Routes = [
 
     {path: '', component: Home}, // <-- Esto es lo que se renderiza en el router-outlet
     {path: 'login', component: LogginComponent },
-    {path: 'statics', component: Estadisticas },
+    {path: 'statistics', component: Estadisticas },
     {path: 'filters', component: Filters },
     {path: 'dashboard', component:DashboardComponent},
     {path: 'register-form', component: Form}

@@ -1,15 +1,5 @@
 body {
-    font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        Helvetica,
-        Arial,
-        "Apple Color Emoji",
-        "Segoe UI Emoji",
-        "Segoe UI Symbol",
-        sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background: var(--highcharts-background-color);
     color: var(--highcharts-neutral-color-100);
 }
@@ -21,6 +11,25 @@ body {
     margin: 0 auto;
 }
 
+/* =============================== */
+/*   BOTONES (si los usas)         */
+/* =============================== */
+.charts-section {
+    background-color: #f9f9f9;      /* color de fondo suave */
+    padding: 2rem;                  /* espacio interno */
+    border-radius: 12px;            /* bordes redondeados */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* sombra para “levantar” */
+    margin: 2rem auto;              /* separación arriba/abajo y centrado */
+    max-width: 1200px;              /* ancho máximo */
+}
+
+.charts-section-title {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #0051b4;
+    margin-bottom: 1.5rem;
+}
 .buttons {
     min-width: 310px;
     text-align: center;
@@ -61,57 +70,81 @@ body {
     color: white;
 }
 
+/* =============================== */
+/*   TITULOS DE GRAFICOS           */
+/* =============================== */
 
-/* Títulos de gráficos */
-.chart-container2 h3, div > h3 {
-  text-align: center;
-  margin-bottom: 10px;
-  font-family: Arial, sans-serif;
+.chart-container2 h3,
+div > h3 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-family: Arial, sans-serif;
 }
 
-/* Contenedor para centrar los selects y dar espacio */
-.select-container {
-  display: flex;
-  gap: 4rem; /* espacio entre selects */
-  margin: 1rem 0;
-  flex-wrap: wrap;
-    justify-content: center;
-    margin: 40px;
+/* Tamaño de gráficos sueltos */
+#chart2, #chart3, #chart4 {
+    width: 100%;
+    height: 400px;
+    margin: 0 auto 30px auto;
 }
 
-/* Estilo general para los selects */
-.select-container select {
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  background-color: #fff;
-  color: #333;
-  transition: all 0.2s ease-in-out;
-  min-width: 200px; /* ancho mínimo */
-  cursor: pointer;
+/* =============================== */
+/*   NUEVO LAYOUT EN TARJETAS      */
+/* =============================== */
+
+/* Grilla responsive */
+.row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 2rem;
+    padding: 20px;
 }
 
-/* Efecto al pasar el mouse */
-.select-container select:hover {
-  border-color: #007BFF;
+/* Tarjeta */
+.chart-card {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
 }
 
-/* Efecto al enfocar */
-.select-container select:focus {
-  border-color: #007BFF;
-  box-shadow: 0 0 5px rgba(0,123,255,0.5);
-  outline: none;
+/* Select dentro de la tarjeta */
+.chart-card select {
+    width: 100%;
+    padding: 0.6rem 1rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 2px solid #ccc;
+    background-color: #fff;
+    color: #333;
+    transition: 0.2s;
+    cursor: pointer;
 }
 
-#chart2 {
-  width: 100%;
-  height: 400px; /* esto es obligatorio */
-  margin: 0 auto 30px auto;
+.chart-card select:hover,
+.chart-card select:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 6px rgba(0,123,255,0.4);
+    outline: none;
 }
 
-.select-level1{
+/* Títulos dentro de la tarjeta */
+.chart-card h3 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Tamaño de gráficos dentro de tarjeta */
+.chart-card div[id^="chart"] {
+    width: 100%;
+    height: 400px;
+}
+
+
+
+/* .select-level1 {
     background-color: #007BFF;
     color: violet;
     font-size: 20px;
-}
+} */
