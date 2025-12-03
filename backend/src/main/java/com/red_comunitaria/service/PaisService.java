@@ -1,5 +1,6 @@
 package com.red_comunitaria.service;
 
+import com.red_comunitaria.dto.PaisDTO;
 import com.red_comunitaria.dto.PaisDetalleDTO;
 import com.red_comunitaria.model.PaisEntity;
 import com.red_comunitaria.repository.PaisRepository;
@@ -7,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -57,6 +59,35 @@ public class PaisService {
                 medicionesDTO,
                 emprendimientosDTO
         );
+    }
+
+    public Optional<PaisDTO> obtenerPais(String id) {
+        return Optional.ofNullable(repository.findById(id)
+                .map(p -> new PaisDTO(
+                        p.getIso3(),
+                        p.getNombrePais(),
+                        p.getRegion(),
+                        p.getRegionCod(),
+                        p.getIngreso(),
+                        p.getPoblacion(),
+                        p.getPppgdp(),
+                        p.getPpppc()
+                )).orElseThrow(() -> new RuntimeException("Pais no encontrado con id: " + id)));
+    }
+
+    public List<PaisDTO> obtenerPaises() {
+        return repository.findAll()
+                .stream()
+                .map(p -> new PaisDTO(
+                        p.getIso3(),
+                        p.getNombrePais(),
+                        p.getRegion(),
+                        p.getRegionCod(),
+                        p.getIngreso(),
+                        p.getPoblacion(),
+                        p.getPppgdp(),
+                        p.getPpppc()
+                )).toList();
     }
 
 

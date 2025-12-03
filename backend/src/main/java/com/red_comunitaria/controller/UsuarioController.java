@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/usuarios")
+@CrossOrigin(origins = "http://localhost:4200")
 @RequiredArgsConstructor
 class UsuarioController {
 
@@ -39,6 +40,20 @@ class UsuarioController {
             return ResponseEntity
                     .status(HttpStatus.BAD_REQUEST)
                     .body(new ApiResponse<>(false, "Error al obtener el usuario con id: " + email, e.getMessage()));
+        }
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<?>  getAllUsuarios() {
+        try {
+            var usuarios = service.findAll();
+            return ResponseEntity
+                    .status(HttpStatus.OK)
+                    .body(new ApiResponse<>(true, "Usuarios", usuarios));
+        }catch (Exception e) {
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body(new ApiResponse<>(false, "Error al obtener los usuarios", e.getMessage()));
         }
     }
 
@@ -84,4 +99,5 @@ class UsuarioController {
                     .body(new ApiResponse<> (false, "Error al modificar el usuario", e.getMessage()));
         }
     }
+
 }

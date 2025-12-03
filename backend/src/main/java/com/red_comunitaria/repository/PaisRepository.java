@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface PaisRepository extends JpaRepository<PaisEntity, Long> {
+public interface PaisRepository extends JpaRepository<PaisEntity, String> {
 
     @Query("""
         select distinct p
