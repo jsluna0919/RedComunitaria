@@ -2,6 +2,7 @@ package com.red_comunitaria.model;
 
 import jakarta.persistence.*;
 import lombok.Builder;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 
@@ -31,6 +32,7 @@ public class EmprendimientoEntity {
     private String sector;
 
     @Column(name = "creado_en")
+    @CreationTimestamp
     private LocalDateTime creadoEn;
 
     // Relación muchos a uno

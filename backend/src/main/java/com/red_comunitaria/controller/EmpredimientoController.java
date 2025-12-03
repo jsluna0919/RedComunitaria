@@ -57,7 +57,7 @@ public class EmpredimientoController {
     }
 
     @PostMapping("/crear")
-    public ResponseEntity<?> crarEmprendimiento(CrearEmprendimientoDTO dto){
+    public ResponseEntity<?> crarEmprendimiento(@RequestBody CrearEmprendimientoDTO dto){
         try {
             var emprendimiento = service.crearEmprendimiento(dto);
             return ResponseEntity
@@ -67,6 +67,20 @@ public class EmpredimientoController {
             return ResponseEntity
                     .status(HttpStatus.BAD_REQUEST)
                     .body(new ApiResponse<>(false, "Error al crear emprendimiento", e.getMessage()));
+        }
+    }
+
+    @PutMapping("/modificar/{id}")
+    public ResponseEntity<?> modificarEmprendimiento(@PathVariable Integer id, @RequestBody CrearEmprendimientoDTO dto){
+        try {
+            var emprendimientoModificado = service.modificarEmprendimiento(id,dto);
+            return ResponseEntity
+                    .status(HttpStatus.OK)
+                    .body(new ApiResponse<>(true, "Emprendimiento modificado", emprendimientoModificado));
+        }catch(Exception e){
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body(new ApiResponse<>(false, "Error al modificar emprendimiento", e.getMessage()));
         }
     }
 
