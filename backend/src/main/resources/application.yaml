@@ -1,3 +1,20 @@
 spring:
   application:
     name: Red Comunitaria
+
+  datasource:
+    url: jdbc:postgresql://dpg-d4ac3hre5dus73a1dv40-a.oregon-postgres.render.com:5432/db_red_comunitaria
+    username: db_red_comunitaria_user
+    password: hV2HVGFYwNrsZa7UQwyYqmrrzhO4q9bO
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      data-source-properties:
+        ssl: true
+        sslmode: require
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true

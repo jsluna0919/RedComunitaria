@@ -1,0 +1,159 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--highcharts-background-color);
+    color: var(--highcharts-neutral-color-100);
+}
+
+#container {
+    min-width: 310px;
+    max-width: 800px;
+    height: 400px;
+    margin: 0 auto;
+}
+
+/* =============================== */
+/*   BOTONES (si los usas)         */
+/* =============================== */
+.charts-section {
+    background-color: #f9f9f9;      /* color de fondo suave */
+    padding: 2rem;                  /* espacio interno */
+    border-radius: 12px;            /* bordes redondeados */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* sombra para “levantar” */
+    margin: 2rem auto;              /* separación arriba/abajo y centrado */
+    max-width: 1200px;              /* ancho máximo */
+}
+
+.charts-section-title {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #0051b4;
+    margin-bottom: 1.5rem;
+}
+.buttons {
+    min-width: 310px;
+    text-align: center;
+    margin: 1rem 0;
+    font-size: 0;
+}
+
+.buttons button {
+    cursor: pointer;
+    border: 1px solid silver;
+    border-right-width: 0;
+    background-color: #f8f8f8;
+    font-size: 1rem;
+    padding: 0.5rem;
+    transition-duration: 0.3s;
+    margin: 0;
+}
+
+.buttons button:first-child {
+    border-top-left-radius: 0.3em;
+    border-bottom-left-radius: 0.3em;
+}
+
+.buttons button:last-child {
+    border-top-right-radius: 0.3em;
+    border-bottom-right-radius: 0.3em;
+    border-right-width: 1px;
+}
+
+.buttons button:hover {
+    color: white;
+    background-color: rgb(158 159 163);
+    outline: none;
+}
+
+.buttons button.active {
+    background-color: #0051b4;
+    color: white;
+}
+
+/* =============================== */
+/*   TITULOS DE GRAFICOS           */
+/* =============================== */
+
+.chart-container2 h3,
+div > h3 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-family: Arial, sans-serif;
+}
+
+/* Tamaño de gráficos sueltos */
+#chart2, #chart3, #chart4 {
+    width: 100%;
+    height: 400px;
+    margin: 0 auto 30px auto;
+}
+
+/* =============================== */
+/*   NUEVO LAYOUT EN TARJETAS      */
+/* =============================== */
+
+/* Grilla responsive */
+.row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 2rem;
+    padding: 20px;
+}
+
+/* Tarjeta */
+.chart-card {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+}
+
+/* Select dentro de la tarjeta */
+.chart-card select {
+    width: 100%;
+    padding: 0.6rem 1rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 2px solid #ccc;
+    background-color: #fff;
+    color: #333;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.chart-card select:hover,
+.chart-card select:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 6px rgba(0,123,255,0.4);
+    outline: none;
+}
+
+/* Títulos dentro de la tarjeta */
+.chart-card h3 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Tamaño de gráficos dentro de tarjeta */
+.chart-card div[id^="chart"] {
+    width: 100%;
+    height: 400px;
+}
+
+.chart-description {
+  margin-top: 10px;
+  font-size: 15px;
+  color: #444;
+  font-style: italic;
+  padding: 6px 10px;
+  border-left: 4px solid #1976d2;
+  background: #f5f8ff;
+  border-radius: 4px;
+}
+
+/* .select-level1 {
+    background-color: #007BFF;
+    color: violet;
+    font-size: 20px;
+} */

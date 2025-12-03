@@ -1,0 +1,265 @@
+/* Paleta de Colores (repetimos para referencia)
+   --Primary: #00bcd4 (Teal vibrante)
+   --Secondary: #1e90ff (Electric Blue)
+   --Text-Dark: #343a40 (Un gris oscuro para el texto principal)
+   --Text-Muted: #6c757d (Un gris más claro para texto secundario)
+   --Background-Light: #f8f9fa (Fondo claro)
+   --Background-Section: #f0f2f5; (Un gris un poco más oscuro para secciones)
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
+
+/* --- Globales y Tipografía --- */
+body {
+    font-family: 'Poppins', sans-serif; /* Consistencia con la barra de navegación */
+    color: var(--Text-Dark);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700; /* Más negrita para los títulos */
+    color: var(--Text-Dark);
+}
+
+p {
+    color: var(--Text-Muted);
+}
+
+/* --- Header de la Página --- */
+.bg-primary.text-white { /* Modificamos la clase bg-primary de Bootstrap */
+    background: linear-gradient(135deg, #00bcd4, #1e90ff) !important; /* Degradado vibrante */
+    color: #ffffff !important;
+    padding: 6rem 0; /* Más espacio vertical */
+    border-bottom-left-radius: 50px; /* Bordes redondeados sutiles en la parte inferior */
+    border-bottom-right-radius: 50px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Sombra elegante */
+    position: relative;
+    overflow: hidden; /* Para animaciones de fondo */
+}
+
+.bg-primary.text-white::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.05); /* Overlay sutil */
+    transform: rotate(45deg);
+    animation: header-bg-pulse 15s infinite alternate; /* Animación de fondo */
+    z-index: 0;
+}
+
+@keyframes header-bg-pulse {
+    0% { opacity: 0.05; transform: scale(1) rotate(45deg); }
+    100% { opacity: 0.15; transform: scale(1.1) rotate(45deg); }
+}
+
+
+.bg-primary.text-white .container {
+    position: relative;
+    z-index: 1; /* Asegura que el contenido esté por encima del overlay animado */
+}
+
+.bg-primary.text-white .display-6 { /* Adaptamos el tamaño del título principal */
+    font-size: 2.8rem; /* Ajuste para un buen tamaño */
+    font-weight: 800; /* Más negrita aún */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Sombra de texto para destacar */
+}
+
+/* --- Sección de Introducción (¿Qué es DataRed?) --- */
+.container.mb-5 .row {
+    padding: 3rem 0;
+}
+
+.container.mb-5 h2 {
+    font-size: 2.5rem;
+    color: #00bcd4; /* Título secundario con color primario */
+    margin-bottom: 1.5rem;
+}
+
+.container.mb-5 p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.container.mb-5 .btn-primary { /* Botón 'Conocer más' */
+    background-color: #1e90ff; /* Consistencia con el navbar */
+    border-radius: 25px;
+    padding: 0.75rem 2rem;
+    box-shadow: 0 5px 15px rgba(30, 144, 255, 0.3);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.container.mb-5 .btn-primary:hover {
+    background-color: #00bcd4;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 188, 212, 0.4);
+}
+
+.container.mb-5 img { /* Imagen de la sección de introducción */
+    border-radius: 20px; /* Bordes redondeados para la imagen */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Sombra atractiva */
+    transition: transform 0.3s ease-in-out;
+}
+
+.container.mb-5 img:hover {
+    transform: scale(1.02); /* Ligerísimo zoom al pasar el ratón */
+}
+
+/* --- Sección de Noticias Recientes --- */
+.bg-light.py-5 { /* Usamos un color de fondo ligeramente diferente */
+    background-color: #f0f2f5 !important;
+    padding: 5rem 0;
+    border-top-left-radius: 50px; /* Bordes redondeados en la parte superior */
+    border-top-right-radius: 50px;
+    margin-top: -30px; /* Superpone un poco con la sección anterior */
+    position: relative;
+    z-index: 0;
+}
+
+.bg-light.py-5 h3 {
+    font-size: 2rem;
+    color: #00bcd4;
+    margin-bottom: 3rem;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.bg-light.py-5 h3::after { /* Subrayado decorativo */
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: #1e90ff; /* Color secundario para el subrayado */
+    border-radius: 2px;
+}
+
+/* Estilo de las Tarjetas de Noticia */
+.card {
+    border: none; /* Quitamos el borde predeterminado de Bootstrap */
+    border-radius: 15px; /* Bordes redondeados para las tarjetas */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    overflow: hidden; /* Asegura que la imagen redondeada se vea bien */
+}
+
+.card:hover {
+    transform: translateY(-8px); /* Efecto de levantamiento al pasar el ratón */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada al levantar */
+}
+
+.card-img-top {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    height: 200px; /* Altura fija para las imágenes de noticia */
+    object-fit: cover; /* Recorta la imagen para que cubra el área */
+}
+
+.card-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--Text-Dark);
+    margin-bottom: 0.8rem;
+    height: 3.6em; /* Altura fija para el título (aprox 2 líneas) */
+    overflow: hidden; /* Oculta el texto extra si es más largo */
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limita a 2 líneas */
+    -webkit-box-orient: vertical;
+}
+
+.card-text {
+    font-size: 0.95rem;
+    color: var(--Text-Muted);
+    height: 4.5em; /* Altura fija para el texto (aprox 3 líneas) */
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limita a 3 líneas */
+    -webkit-box-orient: vertical;
+}
+
+.btn-outline-primary { /* Botón 'Leer más' */
+    color: #1e90ff;
+    border-color: #1e90ff;
+    border-radius: 20px;
+    padding: 0.4rem 1.2rem;
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-outline-primary:hover {
+    background-color: #1e90ff;
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(30, 144, 255, 0.2);
+    transform: scale(1.03);
+}
+
+/* --- Estilo del Modal (CodeInnovators) --- */
+
+/* Definición de clases de color (para usar en el modal) */
+.text-primary-ci {
+    color: #00bcd4 !important; /* Teal vibrante */
+}
+
+.text-secondary-ci {
+    color: #1e90ff !important; /* Electric Blue */
+}
+
+/* Estilo general del contenido del modal */
+.modal-content {
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    border: none;
+}
+
+/* Encabezado del modal */
+.modal-header {
+    border-bottom: 3px solid #00bcd4; /* Línea separadora del color primario */
+    background-color: #f8f9fa;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    padding: 1rem 1.5rem;
+}
+
+.modal-header .modal-title {
+    color: #1f2833; /* Color oscuro para el título */
+    font-weight: 700;
+}
+
+/* Botón de cerrar (x) */
+.modal-header .close {
+    font-size: 1.8rem;
+    color: #1e90ff; /* Color secundario */
+    opacity: 0.8;
+}
+
+/* Cuerpo del modal (listas) */
+.modal-body ul {
+    padding-left: 20px;
+}
+
+.modal-body ul li {
+    margin-bottom: 0.75rem;
+}
+
+/* Pie del modal */
+.modal-footer {
+    border-top: none;
+    padding: 0.75rem 1.5rem;
+}
+
+/* Botón de cierre en el footer */
+.modal-footer .btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    border-radius: 25px;
+    transition: all 0.3s;
+}
+
+.modal-footer .btn-secondary:hover {
+    background-color: #343a40;
+    border-color: #343a40;
+}

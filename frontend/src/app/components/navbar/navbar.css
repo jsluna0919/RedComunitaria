@@ -1,0 +1,61 @@
+/* Paleta de Colores
+   --Primary: #00bcd4 (Teal vibrante)
+   --Secondary: #1e90ff (Electric Blue)
+   --Background: #f8f9fa (Blanco suave, similar a Bootstrap)
+*/
+
+/* 1. Estilo General del Navbar */
+.navbar {
+    background-color: #f8f9fa !important; /* Mantenemos el fondo claro para el contraste */
+    border-bottom: 3px solid #00bcd4; /* Línea inferior de color primario */
+    padding: 1rem 2rem; /* Aumentamos el padding para hacerlo más espacioso */
+    transition: all 0.3s ease-in-out;
+}
+
+/* 2. Estilo del Nombre de la Marca */
+.navbar-brand {
+    font-family: 'Poppins', sans-serif; /* Se recomienda usar una fuente moderna (si está disponible) */
+    font-size: 1.8rem;
+    color: #00bcd4 !important; /* Color primario vibrante */
+    letter-spacing: 0.5px;
+    position: relative;
+}
+
+/* Efecto Hover Dinámico para la Marca */
+.navbar-brand:hover {
+    color: #1e90ff !important; /* Cambio de color al pasar el ratón */
+    transform: scale(1.05); /* Ligerísimo zoom */
+}
+
+/* 3. Estilo del Botón de Ingresar */
+.btn-primary {
+    background-color: #1e90ff; /* Electric Blue como color secundario */
+    border: none;
+    border-radius: 25px; /* Bordes redondeados (Forma de moda: "Pill/Cápsula") */
+    padding: 0.5rem 1.5rem;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 10px rgba(30, 144, 255, 0.3); /* Sombra sutil y colorida */
+}
+
+/* Efecto Hover Dinámico para el Botón */
+.btn-primary:hover {
+    background-color: #00bcd4; /* Cambia al Teal primario al hacer hover */
+    transform: translateY(-2px); /* Ligerísimo levantamiento */
+    box-shadow: 0 6px 15px rgba(0, 188, 212, 0.4);
+}
+
+/* 4. Estilo de la Barra de Búsqueda */
+.form-control {
+    border: 1px solid #ddd;
+    border-radius: 20px; /* Bordes redondeados */
+    padding-left: 1.25rem;
+    background-color: #ffffff;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Efecto Dinámico de Foco para el Buscador */
+.form-control:focus {
+    border-color: #00bcd4; /* Borde de color primario al hacer foco */
+    box-shadow: 0 0 0 0.2rem rgba(0, 188, 212, 0.25); /* Sombra de foco suave y azul */
+}

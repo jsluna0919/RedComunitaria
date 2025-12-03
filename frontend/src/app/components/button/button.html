@@ -1,0 +1,19 @@
+<a 
+  *ngIf="routerLink"
+  [routerLink]="routerLink"
+  class="btn"
+  [ngClass]="color"
+  [attr.disabled]="disabled ? true : null"
+>
+  {{ label }}
+</a>
+
+<button
+  *ngIf="!routerLink"
+  class="btn"
+  [ngClass]="color"
+  [disabled]="disabled"
+  [attr.type]="type"
+>
+  {{ label }}
+</button>

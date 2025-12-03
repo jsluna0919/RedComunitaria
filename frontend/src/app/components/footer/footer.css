@@ -1,0 +1,34 @@
+/* --- Pie de Página (Footer) --- */
+.footer-codeinnovators {
+    /* Fondo Oscuro con Degradado Sutil */
+    background: linear-gradient(135deg, #1f2833, #343a40) !important; 
+    color: #f8f9fa !important; /* Texto claro */
+    padding: 2rem 0; /* Más relleno vertical */
+    border-top: 4px solid #00bcd4; /* Línea superior del color primario (Teal) */
+    border-top-left-radius: 15px; /* Bordes redondeados sutiles */
+    border-top-right-radius: 15px;
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1); /* Sombra elegante hacia arriba */
+}
+
+/* Título de Derechos de Autor */
+.footer-codeinnovators p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.2rem !important;
+    color: #1e90ff; /* Color secundario (Electric Blue) para el año */
+}
+
+/* Descripción del Proyecto */
+.footer-codeinnovators small {
+    display: block; /* Asegura que ocupe su propia línea */
+    margin-top: 0.5rem;
+    color: #adb5bd; /* Gris claro sutil */
+    font-size: 0.85rem;
+}
+
+/* Efecto Hover en el Nombre del Proyecto */
+.footer-codeinnovators p:hover {
+    color: #00bcd4; /* Cambio de color al hacer hover */
+    cursor: default; /* Mantenemos el cursor normal */
+    transition: color 0.3s ease-in-out;
+}
