@@ -128,6 +128,7 @@ public class EmprendimientoService {
 
     }
 
+    @Transactional
     public void deleteEmprendimiento(Integer id) {
         repository.deleteById(id);
     }

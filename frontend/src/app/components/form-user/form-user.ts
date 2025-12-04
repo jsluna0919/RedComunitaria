@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common'; 
 import { FormsModule } from '@angular/forms'; 
+import { Usuario } from './usuario';
+import { Router } from '@angular/router';
+import { CrearUsuario } from './crear';
 
 // --- INTERFACES ---
 // Define la estructura del objeto que se enviará (similar a tu JSON)
@@ -37,7 +40,26 @@ export class FormUser implements OnInit {
     public rolesDisponibles = ['ADMIN', 'USER', 'GUEST'];
 
 
-    constructor() { }
+    usuarioNuevo: CrearUsuario={
+        nombreUsuario: '',
+        telefono: '',
+        email: ',',
+        contrasenia: '',
+        rol: ''
+    }
+    constructor( private service: Usuario, private router: Router) { }
+
+    guardarUsuario(){
+        this.service.usuarioCrear(this.usuario).subscribe({
+            next: res => {
+                console.log('Usuario creado', res)
+                alert('✅ Usuario creado con éxito')
+            },error: err => {
+                console.error(err)
+                alert('❌ Error al crear el Usuario');
+            }
+        })
+    }
 
     ngOnInit(): void {
     }

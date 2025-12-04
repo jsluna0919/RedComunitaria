@@ -1,16 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common'; 
 import { FormsModule } from '@angular/forms'; 
+import { EmprendimientoService } from './emprendimiento';
+import { Router } from '@angular/router';
+import { CrearEmprendimiento } from './crear';
 
-// --- INTERFACES ---
-interface EmprendimientoForm {
-    iso3: string;
-    nombre: string;
-    anioFundacion: number | null;
-    sitioWeb: string;
-    descripcion: string; 
-    codigo: number | null;
-}
 
 @Component({
     selector: 'app-form',
@@ -25,13 +19,14 @@ interface EmprendimientoForm {
 export class Form implements OnInit { // Usamos el nombre de clase 'Form'
 
     // 1. Inicialización del modelo de datos del formulario
-    public emprendimiento: EmprendimientoForm = {
-        iso3: 'COL', // Valor predeterminado para el país
+    public emprendimiento: CrearEmprendimiento = {
+        iso3: '', // Valor predeterminado para el país
         nombre: '',
         anioFundacion: null, 
         sitioWeb: '',
         descripcion: '',
-        codigo: null,
+        sector: '',
+        usuario: null
     };
     
     // 2. Lista de países/sectores
@@ -160,15 +155,22 @@ export class Form implements OnInit { // Usamos el nombre de clase 'Form'
     ];
 
     public sectores = ['Institutions', 'Human capital and research', 'Infrastructure', 'Market sophistication', 'Business sophistication','Knowledge and technology outputs','Creative outputs'];
-
-
-    constructor() { }
+    constructor(private service: EmprendimientoService, private router: Router) { }
 
     ngOnInit(): void {
     }
 
     // 3. Función para manejar el envío del formulario
     onSubmit(): void {
+        this.service.crearEmprendimiento(this.emprendimiento).subscribe({
+            next: res =>{
+                console.log('Emprendimiento creado', res)
+                alert('✅ Emprendimiento creado con éxito')
+            }, error: err => {
+                console.error(err)
+                alert('❌ Error al crear el Usuario');
+            }
+        })
         console.log('✅ Formulario enviado con éxito:');
         console.log(this.emprendimiento);
     }

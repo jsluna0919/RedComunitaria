@@ -4,11 +4,6 @@
     <form (ngSubmit)="onSubmit()" #emprendimientoForm="ngForm">
 
         <div class="form-group">
-            <label for="codigo">Id usuario:</label>
-            <input type="number" id="codigo" name="codigo" [(ngModel)]="emprendimiento.codigo" required>
-        </div>
-
-        <div class="form-group">
             <label for="pais">País (ISO3):</label>
             <select id="pais" name="pais" [(ngModel)]="emprendimiento.iso3" required>
                 <option *ngFor="let p of paises" [ngValue]="p.iso3">
@@ -24,7 +19,7 @@
 
         <div class="form-group">
             <label for="anioFundacion">Año de Fundación:</label>
-            <input type="number" id="anioFundacion" name="anioFundacion" [(ngModel)]="emprendimiento.anioFundacion" required>
+            <input type="text" id="anioFundacion" name="anioFundacion" [(ngModel)]="emprendimiento.anioFundacion" required>
         </div>
 
         <div class="form-group">
@@ -35,6 +30,16 @@
         <div class="form-group">
             <label for="descripcion">Descripción:</label>
             <textarea id="descripcion" name="descripcion" [(ngModel)]="emprendimiento.descripcion" rows="4" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="descripcion">Sector:</label>
+            <input type="text" id="sector" name="sector" [(ngModel)]="emprendimiento.sector" required>
+        </div>
+
+        <div class="form-group">
+            <label for="codigo">Id usuario:</label>
+            <input type="text" id="codigo" name="codigo" [(ngModel)]="emprendimiento.usuario" required>
         </div>
 
         <button type="submit" [disabled]="!emprendimientoForm.valid">Registrar Emprendimiento</button>
