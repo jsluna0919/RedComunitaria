@@ -1,7 +1,6 @@
 package com.red_comunitaria.controller;
 
 import com.red_comunitaria.dto.CrearUsusarioDTO;
-import com.red_comunitaria.model.UsuarioEntity;
 import com.red_comunitaria.service.UsuarioService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
