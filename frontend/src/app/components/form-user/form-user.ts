@@ -52,11 +52,11 @@ export class FormUser implements OnInit {
     guardarUsuario(){
         this.service.usuarioCrear(this.usuario).subscribe({
             next: res => {
-                console.log('Pedido creado', res)
-                alert('✅ Pedido creado con éxito')
+                console.log('Usuario creado', res)
+                alert('✅ Usuario creado con éxito')
             },error: err => {
                 console.error(err)
-                alert('❌ Error al crear el pedido');
+                alert('❌ Error al crear el Usuario');
             }
         })
     }
